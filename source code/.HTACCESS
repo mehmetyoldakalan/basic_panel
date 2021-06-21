@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}.php -f 
+RewriteRule ^(.*)$ $1.php 
+RewriteRule ^([a-z]+)\/?$ $1.php [NC]  
+RewriteRule ^(.*)/(.*)/(.*)$ index.php?sayfa=$1&baslik=$2&id=$3 [L,QSA]
+RewriteRule ^([a-z]+)$ index.php?sayfa=$1 [L]
+DirectoryIndex index.php
+
+<Files db.php>
+Order allow,deny
+Deny from all
+</Files>
+
+</IfModule>
