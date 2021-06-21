@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.*)$ anasayfa.php?sayfa=$1 [L,QSA]
+RewriteRule ^([a-z]+)$ anasayfa.php?sayfa=$1 [L]
+DirectoryIndex anasayfa.php
+
+
+</IfModule>
